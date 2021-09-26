@@ -5,7 +5,7 @@
 							<!--begin::Page title-->
 							<div class="page-title d-flex flex-column me-3">
 								<!--begin::Title-->
-								<h1 class="d-flex text-white fw-bolder my-1 fs-3">Data Bulan Proyek</h1>
+								<h1 class="d-flex text-white fw-bolder my-1 fs-3">Data Pengadaan</h1>
 								<!--end::Title-->
 								<!--begin::Breadcrumb-->
 								<ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1">
@@ -15,7 +15,7 @@
 									</li>
 									<!--end::Item-->
 									<!--begin::Item-->
-									<li class="breadcrumb-item text-white opacity-75">Data Bulan Proyek</li>
+									<li class="breadcrumb-item text-white opacity-75">Data Pengadaan</li>
 									<!--end::Item-->
 								</ul>
 								<!--end::Breadcrumb-->
@@ -108,68 +108,94 @@
 														<form method="post" id="kt_modal_add_user_form" class="form" action="<?php echo site_url('C_admin/simpan_bulanan')?>">
 															<!--begin::Scroll-->
 															<div class="d-flex flex-column scroll-y me-n7 pe-7" id="kt_modal_add_user_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_user_header" data-kt-scroll-wrappers="#kt_modal_add_user_scroll" data-kt-scroll-offset="300px">
-																
+																`kode_rencana_pengadaan`, 
+																`kode_tahap_pekerjaan`, 
+																`kode_jenis_pekerjaan`, 
+																`kode_proyek`, 
+																`kode_periode_bulan`, 
+																`rencana_volume_bulan`, 
+																`rencana_volume_minggu1`, `rencana_volume_minggu2`, `rencana_volume_minggu3`, 
+																`rencana_volume_minggu4`
+
 																<!--begin::Input group-->
 																<div class="fv-row mb-7">
 																	<!--begin::Label-->
-																	<label class="required fw-bold fs-6 mb-2">Periode Bulanan</label>
+																	<label class="required fw-bold fs-6 mb-2">Kode Tahap Pekerjaan</label>
 																	<!--end::Label-->
 																	<!--begin::Input-->
-																	<input type="text" name="periode_bulanan" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="" onkeypress="return event.charCode >= 48 && event.charCode <=57"/>
-																	<!--end::Input-->
-																</div>
-																<!--end::Input group-->
-																<!--begin::Input group-->
-																<div class="fv-row mb-7">
-																	<!--begin::Label-->
-																	<label class="required fw-bold fs-6 mb-2">Bulan</label>
-																	<!--end::Label-->
-																	<!--begin::Input-->
-																	<select class="form-select form-select-solid fw-bolder" name="bulan">
-																		<option>Silahakan Bulan</option>
-																		<option value="Januari">Januari</option>
-																		<option value="Februari">Februari</option>
-																		<option value="Maret">Maret</option>
-																		<option value="April">April</option>
-																		<option value="Mei">Mei</option>
-																		<option value="Juni">Juni</option>
-																		<option value="Juli">Juli</option>
-																		<option value="Agustus">Agustus</option>
-																		<option value="September">September</option>
-																		<option value="Oktober">Oktober</option>
-																		<option value="November">November</option>
-																		<option value="Desember">Desember</option>
+																	<select class="form-select form-select-solid fw-bolder" name="kode_tahap_pekerjaan">
 																		
+																		<option>Silahakan Isi Projek</option>
+																		
+											                            <?php                                
+											                              foreach ($user4 as $row) {  
+											                              echo "<option value='".$row->kode_tahap_pekerjaan."'>".$row->nama_tahap_pekerjaan."</option>";
+											                              }
+											                            ?>
+
 																	</select>
 																	<!--end::Input-->
 																</div>
-																<!--end::Input group-->
-																<!--begin::Input group-->
 																<div class="fv-row mb-7">
 																	<!--begin::Label-->
-																	<label class="required fw-bold fs-6 mb-2">Periode Tahun</label>
+																	<label class="required fw-bold fs-6 mb-2">Jenis Pekerjaan</label>
 																	<!--end::Label-->
 																	<!--begin::Input-->
-																	<input type="text" name="periode_tahun" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="" onkeypress="return event.charCode >= 48 && event.charCode <=57"/>
+																	<select class="form-select form-select-solid fw-bolder" name="id_jenis_pekerjaan">
+																		<option>Silahakan Isi Projek</option>
+																		<?php                                
+											                              foreach ($user3 as $row) {  
+											                              echo "<option value='".$row->id_jenis_pekerjaan."'>".$row->nama_jenis_pekerjaan."</option>";
+											                              }
+											                            ?>
+																	</select>
 																	<!--end::Input-->
 																</div>
-																<!--end::Input group-->
-																
 																<!--begin::Input group-->
 																<div class="fv-row mb-7">
 																	<!--begin::Label-->
-																	<label class="required fw-bold fs-6 mb-2">Nama Proyek</label>
+																	<label class="required fw-bold fs-6 mb-2">Kode Projek</label>
 																	<!--end::Label-->
 																	<!--begin::Input-->
 																	<select class="form-select form-select-solid fw-bolder" name="kode_proyek">
 																		
 																		<option>Silahakan Isi Projek</option>
-																		<?php                                
+																		
+											                            <?php                                
 											                              foreach ($user2 as $row) {  
 											                              echo "<option value='".$row->kode_proyek."'>".$row->nama_proyek."</option>";
 											                              }
 											                            ?>
+
 																	</select>
+																	<!--end::Input-->
+																</div>
+																<!--begin::Input group-->
+																<div class="fv-row mb-7">
+																	<!--begin::Label-->
+																	<label class="required fw-bold fs-6 mb-2">Kode Tahap Pekerjaan</label>
+																	<!--end::Label-->
+																	<!--begin::Input-->
+																	<select class="form-select form-select-solid fw-bolder" name="kode_tahap_pekerjaan">
+																		
+																		<option>Silahakan Isi Projek</option>
+																		
+											                            <?php                                
+											                              foreach ($user5 as $row) {  
+											                              echo "<option value='".$row->kode_periode_bulanan."'>".$row->periode_bulanan."</option>";
+											                              }
+											                            ?>
+
+																	</select>
+																	<!--end::Input-->
+																</div>
+																<!--begin::Input group-->
+																<div class="fv-row mb-7">
+																	<!--begin::Label-->
+																	<label class="required fw-bold fs-6 mb-2">Jumlah</label>
+																	<!--end::Label-->
+																	<!--begin::Input-->
+																	<input type="text" name="jumlah" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Jenis Pekerjaan" onkeypress="return event.charCode >= 48 && event.charCode <=57"/>
 																	<!--end::Input-->
 																</div>
 															</div>

@@ -53,8 +53,24 @@ function __construct(){
 			$this->load->view('admin/data/sumber_daya_material',$data);
 			$this->load->view('admin/inc/footer');
 		}
-
-
+		public function bulanan(){
+			$data['user'] = $this->M_admin->tampil_data_bulanan()->result();
+			$data['user2'] = $this->M_admin->tampil_data_proyek()->result();
+			$this->load->view('admin/inc/head');
+			$this->load->view('admin/inc/sidebar');
+			$this->load->view('admin/data/bulanan_projek',$data);
+			$this->load->view('admin/inc/footer');
+		}
+		public function perencanaan_material(){
+			$data['user'] = $this->M_admin->tampil_data_sumber_daya_material()->result();
+			$data['user4'] = $this->M_admin->tampil_data_tahap_pekerjaan()->result();
+			$data['user3'] = $this->M_admin->tampil_data_jproyek()->result();
+			$data['user2'] = $this->M_admin->tampil_data_proyek()->result();
+			$this->load->view('admin/inc/head');
+			$this->load->view('admin/inc/sidebar');
+			$this->load->view('admin/data/sumber_daya_material',$data);
+			$this->load->view('admin/inc/footer');
+		}
 	/*Simpan Data*/
 
 	public function simpan_proyek(){
@@ -161,6 +177,24 @@ function __construct(){
 		redirect('C_admin/sumber_daya_material');
 	}
 
+		public function simpan_bulanan(){
+
+		//$kode_periode_bulanan = $this->input->post('kode_periode_bulanan');
+		$periode_bulanan = $this->input->post('periode_bulanan');
+		$bulan = $this->input->post('bulan');
+		$periode_tahun = $this->input->post('periode_tahun');
+		$kode_proyek = $this->input->post('kode_proyek');
+		$data = array(
+			
+			//'kode_periode_bulanan' => $kode_periode_bulanan,
+			'periode_bulanan' => $periode_bulanan,
+			'bulan' => $bulan,
+			'periode_tahun' => $periode_tahun,
+			'kode_proyek' => $kode_proyek
+			);
+		$this->M_admin->input_data_bulanan($data,'periode_bulanan');
+		redirect('C_admin/bulanan');
+	}
 
 	/*Hapus Data Proyek*/
 
@@ -188,5 +222,12 @@ function __construct(){
 		$where = array('kode_sumber_daya_material' => $kode_sumber_daya_material);
 	$this->M_admin->hapus_data_tahap_pekerjaan($where,'sumber_daya_material');
 	redirect('C_admin/sumber_Daya_material');
+	}
+
+	public function hapus_bulanan($kode_periode_bulanan)
+	{
+		$where = array('kode_periode_bulanan' => $kode_periode_bulanan);
+	$this->M_admin->hapus_data_tahap_pekerjaan($where,'periode_bulanan');
+	redirect('C_admin/bulanan');
 	}
 }
