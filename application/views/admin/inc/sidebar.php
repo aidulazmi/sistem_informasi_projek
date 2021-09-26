@@ -148,6 +148,8 @@
 												</span>
 												<div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-rounded-0 py-lg-4 w-lg-225px">
 													<div data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item menu-lg-down-accordion">
+														
+														<a href="<?php echo site_url('C_admin/pengadaan_material')?>">
 														<span class="menu-link py-3">
 															<span class="menu-icon">
 																<!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm007.svg-->
@@ -162,6 +164,8 @@
 															</span>
 															<span class="menu-title">Pengadaan Material</span>
 														</span>
+													</a>
+													<a href="<?php echo site_url('C_admin/perencanaan_material')?>">
 														<span class="menu-link py-3">
 															<span class="menu-icon">
 																<!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm007.svg-->
@@ -176,7 +180,7 @@
 															</span>
 															<span class="menu-title">Penggunaan Material</span>
 														</span>
-														
+														</a>
 													</div>
 												</div>
 											</div>

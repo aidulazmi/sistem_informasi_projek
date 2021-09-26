@@ -105,18 +105,10 @@
 													<!--begin::Modal body-->
 													<div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
 														<!--begin::Form-->
-														<form method="post" id="kt_modal_add_user_form" class="form" action="<?php echo site_url('C_admin/simpan_bulanan')?>">
+														<form method="post" id="kt_modal_add_user_form" class="form" action="<?php echo site_url('C_admin/simpan_pengadaan_material')?>">
 															<!--begin::Scroll-->
 															<div class="d-flex flex-column scroll-y me-n7 pe-7" id="kt_modal_add_user_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_user_header" data-kt-scroll-wrappers="#kt_modal_add_user_scroll" data-kt-scroll-offset="300px">
-																`kode_rencana_pengadaan`, 
-																`kode_tahap_pekerjaan`, 
-																`kode_jenis_pekerjaan`, 
-																`kode_proyek`, 
-																`kode_periode_bulan`, 
-																`rencana_volume_bulan`, 
-																`rencana_volume_minggu1`, `rencana_volume_minggu2`, `rencana_volume_minggu3`, 
-																`rencana_volume_minggu4`
-
+																
 																<!--begin::Input group-->
 																<div class="fv-row mb-7">
 																	<!--begin::Label-->
@@ -141,7 +133,7 @@
 																	<label class="required fw-bold fs-6 mb-2">Jenis Pekerjaan</label>
 																	<!--end::Label-->
 																	<!--begin::Input-->
-																	<select class="form-select form-select-solid fw-bolder" name="id_jenis_pekerjaan">
+																	<select class="form-select form-select-solid fw-bolder" name="kode_jenis_pekerjaan">
 																		<option>Silahakan Isi Projek</option>
 																		<?php                                
 											                              foreach ($user3 as $row) {  
@@ -176,7 +168,7 @@
 																	<label class="required fw-bold fs-6 mb-2">Kode Tahap Pekerjaan</label>
 																	<!--end::Label-->
 																	<!--begin::Input-->
-																	<select class="form-select form-select-solid fw-bolder" name="kode_tahap_pekerjaan">
+																	<select class="form-select form-select-solid fw-bolder" name="kode_periode_bulan">
 																		
 																		<option>Silahakan Isi Projek</option>
 																		
@@ -192,12 +184,46 @@
 																<!--begin::Input group-->
 																<div class="fv-row mb-7">
 																	<!--begin::Label-->
-																	<label class="required fw-bold fs-6 mb-2">Jumlah</label>
+																	<label class="required fw-bold fs-6 mb-2">Rencana Volume Bulanan</label>
 																	<!--end::Label-->
 																	<!--begin::Input-->
-																	<input type="text" name="jumlah" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Jenis Pekerjaan" onkeypress="return event.charCode >= 48 && event.charCode <=57"/>
+																	<input type="text" name="rencana_volume_bulan" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Jenis Pekerjaan" onkeypress="return event.charCode >= 48 && event.charCode <=57"/>
 																	<!--end::Input-->
 																</div>
+																<div class="fv-row mb-7">
+																	<!--begin::Label-->
+																	<label class="required fw-bold fs-6 mb-2">Rencana Volume Mingguan 1</label>
+																	<!--end::Label-->
+																	<!--begin::Input-->
+																	<input type="text" name="rencana_volume_minggu1" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Jenis Pekerjaan" onkeypress="return event.charCode >= 48 && event.charCode <=57"/>
+																	<!--end::Input-->
+																</div>
+																<div class="fv-row mb-7">
+																	<!--begin::Label-->
+																	<label class="required fw-bold fs-6 mb-2">Rencana Volume Mingguan 2</label>
+																	<!--end::Label-->
+																	<!--begin::Input-->
+																	<input type="text" name="rencana_volume_minggu2" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Jenis Pekerjaan" onkeypress="return event.charCode >= 48 && event.charCode <=57"/>
+																	<!--end::Input-->
+																</div>
+																<div class="fv-row mb-7">
+																	<!--begin::Label-->
+																	<label class="required fw-bold fs-6 mb-2">Rencana Volume Mingguan 3</label>
+																	<!--end::Label-->
+																	<!--begin::Input-->
+																	<input type="text" name="rencana_volume_minggu3" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Jenis Pekerjaan" onkeypress="return event.charCode >= 48 && event.charCode <=57"/>
+																	<!--end::Input-->
+																</div>
+																<div class="fv-row mb-7">
+																	<!--begin::Label-->
+																	<label class="required fw-bold fs-6 mb-2">Rencana Volume Mingguan 4</label>
+																	<!--end::Label-->
+																	<!--begin::Input-->
+																	<input type="text" name="rencana_volume_minggu4" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Jenis Pekerjaan" onkeypress="return event.charCode >= 48 && event.charCode <=57"/>
+																	<!--end::Input-->
+																</div>
+																
+																
 															</div>
 															<!--end::Scroll-->
 															<button type="submit" class="btn btn-primary">
@@ -231,9 +257,11 @@
 													</div>
 												</th>
 												
-												<th class="min-w-125px">Periode Bulanan</th>
-												<th class="min-w-125px">Bulan</th>
-												<th class="min-w-125px">Periode Tahun</th>
+												<th class="min-w-125px">rencana_volume_bulan</th>
+												<th class="min-w-125px">rencana_volume_minggu1</th>
+												<th class="min-w-125px">rencana_volume_minggu2</th>
+												<th class="min-w-125px">rencana_volume_minggu3</th>
+												<th class="min-w-125px">rencana_volume_minggu4</th>
 												<th class="text-end min-w-100px">Actions</th>
 											</tr>
 											<!--end::Table row-->
@@ -250,11 +278,13 @@
 													</div>
 												</td>
 												<td>
-													<?php echo $u->periode_bulanan ?>
+													<?php echo $u->rencana_volume_bulan ?>
 												</td>
-												<td><?php echo $u->bulan ?></td>
+												<td><?php echo $u->rencana_volume_minggu1 ?></td>
+												<td><?php echo $u->rencana_volume_minggu2 ?></td>
+												<td><?php echo $u->rencana_volume_minggu3 ?></td>
 												<td>
-													<?php echo $u->periode_tahun ?>
+													<?php echo $u->rencana_volume_minggu4 ?>
 												</td>
 												<td class="text-end">
 													<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
@@ -270,7 +300,7 @@
 															<a href="../../demo2/dist/apps/user-management/users/view.html" class="menu-link px-3">Edit</a>
 														</div>
 														<div class="menu-item px-3">
-															<a href="<?php echo site_url('C_admin/hapus_bulanan/'.$u->kode_periode_bulanan);?>" class="menu-link px-3" onclick="return confirm('Anda yakin mau menghapus item ini ?')">Delete</a>
+															<a href="<?php echo site_url('C_admin/hapus_pengadaan_material/'.$u->kode_rencana_pengadaan);?>" class="menu-link px-3" onclick="return confirm('Anda yakin mau menghapus item ini ?')">Delete</a>
 														</div>
 													</div>
 													<!--end::Menu-->

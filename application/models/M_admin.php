@@ -89,4 +89,22 @@ class M_admin extends CI_Model{
 						$this->db->where($where);
 						$this->db->update($table,$data);
 					}
+
+					function tampil_data_pengadaan_material(){
+						return $this->db->get('pengadaan_material');
+					}
+					function input_data_pengadaan_material($data,$table){
+						$this->db->insert($table,$data);
+					}
+					function hapus_data_pengadaan_material($where,$table){
+						$this->db->where($where);
+						$this->db->delete($table);
+					}
+					function edit_data_pengadaan_material($where,$table){		
+						return $this->db->get_where($table,$where);
+					}
+					function update_data_pengadaan_material($where,$data,$table){
+						$this->db->where($where);
+						$this->db->update($table,$data);
+					}
 }

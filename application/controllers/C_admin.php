@@ -61,16 +61,25 @@ function __construct(){
 			$this->load->view('admin/data/bulanan_projek',$data);
 			$this->load->view('admin/inc/footer');
 		}
-		public function perencanaan_material(){
-			$data['user'] = $this->M_admin->tampil_data_sumber_daya_material()->result();
+		public function pengadaan_material(){
+			$data['user'] = $this->M_admin->tampil_data_pengadaan_material()->result();
 			$data['user4'] = $this->M_admin->tampil_data_tahap_pekerjaan()->result();
 			$data['user3'] = $this->M_admin->tampil_data_jproyek()->result();
 			$data['user2'] = $this->M_admin->tampil_data_proyek()->result();
+			$data['user5'] = $this->M_admin->tampil_data_bulanan()->result();
 			$this->load->view('admin/inc/head');
 			$this->load->view('admin/inc/sidebar');
-			$this->load->view('admin/data/sumber_daya_material',$data);
+			$this->load->view('admin/perencanaan/pengadaan',$data);
 			$this->load->view('admin/inc/footer');
 		}
+		public function perencanaan_material(){
+			
+			$this->load->view('admin/inc/head');
+			$this->load->view('admin/inc/sidebar');
+			$this->load->view('admin/perencanaan/perencanaan');
+			$this->load->view('admin/inc/footer');
+		}
+	/*Simpan Data*/
 	/*Simpan Data*/
 
 	public function simpan_proyek(){
@@ -176,7 +185,36 @@ function __construct(){
 		$this->M_admin->input_data_sumber_daya_material($data,'sumber_daya_material');
 		redirect('C_admin/sumber_daya_material');
 	}
+			public function simpan_pengadaan_material(){
+					
 
+					//$kode_rencana_pengadaan = $this->input->post('kode_rencana_pengadaan');
+					$kode_tahap_pekerjaan = $this->input->post('kode_tahap_pekerjaan');
+					$kode_jenis_pekerjaan = $this->input->post('kode_jenis_pekerjaan');
+					$kode_proyek = $this->input->post('kode_proyek');
+					$kode_periode_bulan = $this->input->post('kode_periode_bulan');
+					$rencana_volume_bulan = $this->input->post('rencana_volume_bulan');
+					$rencana_volume_minggu1 = $this->input->post('rencana_volume_minggu1');
+					$rencana_volume_minggu2 = $this->input->post('rencana_volume_minggu2');
+					$rencana_volume_minggu3 = $this->input->post('rencana_volume_minggu3');
+					$rencana_volume_minggu4 = $this->input->post('rencana_volume_minggu4');
+
+					$data = array(
+						
+						//'kode_rencana_pengadaan' => $kode_rencana_pengadaan,
+						'kode_tahap_pekerjaan' => $kode_tahap_pekerjaan,
+						'kode_jenis_pekerjaan' => $kode_jenis_pekerjaan,
+						'kode_proyek' => $kode_proyek,
+						'kode_periode_bulan' => $kode_periode_bulan,
+						'rencana_volume_bulan' => $rencana_volume_bulan,
+						'rencana_volume_minggu1' => $rencana_volume_minggu1,
+						'rencana_volume_minggu2' => $rencana_volume_minggu2,
+						'rencana_volume_minggu3' => $rencana_volume_minggu3,
+						'rencana_volume_minggu4' => $rencana_volume_minggu4
+						);
+					$this->M_admin->input_data_pengadaan_material($data,'pengadaan_material');
+					redirect('C_admin/pengadaan_material');
+				}
 		public function simpan_bulanan(){
 
 		//$kode_periode_bulanan = $this->input->post('kode_periode_bulanan');
@@ -229,5 +267,11 @@ function __construct(){
 		$where = array('kode_periode_bulanan' => $kode_periode_bulanan);
 	$this->M_admin->hapus_data_tahap_pekerjaan($where,'periode_bulanan');
 	redirect('C_admin/bulanan');
+	}
+	public function hapus_pengadaan_material($kode_rencana_pengadaan)
+	{
+		$where = array('kode_rencana_pengadaan' => $kode_rencana_pengadaan);
+	$this->M_admin->hapus_data_pengadaan_material($where,'pengadaan_material');
+	redirect('C_admin/pengadaan_material');
 	}
 }
